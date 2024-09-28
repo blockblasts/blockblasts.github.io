@@ -39,38 +39,10 @@ function padFigureTo5x5(figure) {
 function findBestSolution(grid, figures) {
   let bestSolution = null;
 
-  // Try to find the best solution with a single figure
-  for (let i = 0; i < figures.length; i++) {
-    const singleFigureSolution = findSolutionWithSingleFigure(grid, figures[i]);
-    if (singleFigureSolution && (!bestSolution || singleFigureSolution.completedLines.length > bestSolution.completedLines.length)) {
-      bestSolution = singleFigureSolution;
-    }
-  }
-
-  // If no solution with a single figure, try with multiple figures
-  if (!bestSolution) {
-    bestSolution = findSolutionWithMultipleFigures(grid, figures);
-  }
-
-  return bestSolution;
-}
-
-function findSolutionWithSingleFigure(grid, figure) {
-  const positions = getSortedPositions(grid);
-  let bestSolution = null;
-
-  for (const [i, j] of positions) {
-    if (canPlaceFigure(grid, figure, i, j)) {
-      const newGrid = placeFigure(grid, figure, i, j);
-      const completedLines = getCompletedLines(newGrid);
-      if (completedLines.length > 0 && (!bestSolution || completedLines.length > bestSolution.completedLines.length)) {
-        bestSolution = {
-          grid: newGrid,
-          placements: [getFigurePlacement(figure, i, j)],
-          completedLines: completedLines
-        };
-      }
-    }
+  // Try to find the best solution considering all figures together
+  const multiFigureSolution = findSolutionWithMultipleFigures(grid, figures);
+  if (multiFigureSolution) {
+    bestSolution = multiFigureSolution;
   }
 
   return bestSolution;
