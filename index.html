@@ -1,0 +1,789 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Blast Solver - Puzzle Game Helper | BlockBlastSolver.com</title>
+    <meta name="description" content="Upload your Block Blast puzzle screenshot and get instant solutions. Our AI-powered solver analyzes grids and figures to provide step-by-step solutions.">
+    <meta name="keywords" content="Block Blast, puzzle solver, game helper, grid analysis, figure analysis">
+    <link rel="canonical" href="https://blockblastsolver.com">
+    <meta property="og:title" content="Block Blast Solver - Puzzle Game Helper">
+    <meta property="og:description" content="Get instant solutions for your Block Blast puzzles. Upload a screenshot and our AI will solve it for you!">
+    <meta property="og:image" content="https://blockblastsolver.com/logo.jpeg">
+    <meta property="og:url" content="https://blockblastsolver.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script>
+      window.sa_event = window.sa_event || function() {
+        var a = [].slice.call(arguments);
+        window.sa_event.q ? window.sa_event.q.push(a) : window.sa_event.q = [a]
+      };
+    </script>
+    <script src="tailwind.js"></script>
+    <style>
+      @media (min-width: 768px) {
+        .side-by-side {
+          display: flex;
+          flex-direction: row;
+          gap: 2rem;
+          align-items: flex-start;
+          /* Align items at the top */
+        }
+      }
+    </style>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+      /* ! tailwindcss v3.4.5 | MIT License | https://tailwindcss.com */
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #e5e7eb
+      }
+
+      ::after,
+      ::before {
+        --tw-content: ''
+      }
+
+      :host,
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent
+      }
+
+      body {
+        margin: 0;
+        line-height: inherit
+      }
+
+      hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px
+      }
+
+      abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit
+      }
+
+      a {
+        color: inherit;
+        text-decoration: inherit
+      }
+
+      b,
+      strong {
+        font-weight: bolder
+      }
+
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        font-size: 1em
+      }
+
+      small {
+        font-size: 80%
+      }
+
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline
+      }
+
+      sub {
+        bottom: -.25em
+      }
+
+      sup {
+        top: -.5em
+      }
+
+      table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse
+      }
+
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0
+      }
+
+      button,
+      select {
+        text-transform: none
+      }
+
+      button,
+      input:where([type=button]),
+      input:where([type=reset]),
+      input:where([type=submit]) {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none
+      }
+
+      :-moz-focusring {
+        outline: auto
+      }
+
+      :-moz-ui-invalid {
+        box-shadow: none
+      }
+
+      progress {
+        vertical-align: baseline
+      }
+
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto
+      }
+
+      [type=search] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px
+      }
+
+      ::-webkit-search-decoration {
+        -webkit-appearance: none
+      }
+
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit
+      }
+
+      summary {
+        display: list-item
+      }
+
+      blockquote,
+      dd,
+      dl,
+      figure,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hr,
+      p,
+      pre {
+        margin: 0
+      }
+
+      fieldset {
+        margin: 0;
+        padding: 0
+      }
+
+      legend {
+        padding: 0
+      }
+
+      menu,
+      ol,
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0
+      }
+
+      dialog {
+        padding: 0
+      }
+
+      textarea {
+        resize: vertical
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        opacity: 1;
+        color: #9ca3af
+      }
+
+      [role=button],
+      button {
+        cursor: pointer
+      }
+
+      :disabled {
+        cursor: default
+      }
+
+      audio,
+      canvas,
+      embed,
+      iframe,
+      img,
+      object,
+      svg,
+      video {
+        display: block;
+        vertical-align: middle
+      }
+
+      img,
+      video {
+        max-width: 100%;
+        height: auto
+      }
+
+      [hidden] {
+        display: none
+      }
+
+      *,
+      ::before,
+      ::after {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style:
+      }
+
+      ::backdrop {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style:
+      }
+
+      .mb-2 {
+        margin-bottom: 0.5rem
+      }
+
+      .mb-3 {
+        margin-bottom: 0.75rem
+      }
+
+      .mb-4 {
+        margin-bottom: 1rem
+      }
+
+      .mb-8 {
+        margin-bottom: 2rem
+      }
+
+      .ml-4 {
+        margin-left: 1rem
+      }
+
+      .mt-2 {
+        margin-top: 0.5rem
+      }
+
+      .mt-4 {
+        margin-top: 1rem
+      }
+
+      .mt-8 {
+        margin-top: 2rem
+      }
+
+      .flex {
+        display: flex
+      }
+
+      .grid {
+        display: grid
+      }
+
+      .hidden {
+        display: none
+      }
+
+      .h-10 {
+        height: 2.5rem
+      }
+
+      .h-24 {
+        height: 6rem
+      }
+
+      .h-64 {
+        height: 16rem
+      }
+
+      .min-h-screen {
+        min-height: 100vh
+      }
+
+      .w-10 {
+        width: 2.5rem
+      }
+
+      .w-16 {
+        width: 4rem
+      }
+
+      .w-24 {
+        width: 6rem
+      }
+
+      .w-full {
+        width: 100%
+      }
+
+      .cursor-pointer {
+        cursor: pointer
+      }
+
+      .grid-cols-8 {
+        grid-template-columns: repeat(8, minmax(0, 1fr))
+      }
+
+      .flex-col {
+        flex-direction: column
+      }
+
+      .flex-wrap {
+        flex-wrap: wrap
+      }
+
+      .items-center {
+        align-items: center
+      }
+
+      .justify-center {
+        justify-content: center
+      }
+
+      .gap-1 {
+        gap: 0.25rem
+      }
+
+      .gap-4 {
+        gap: 1rem
+      }
+
+      .space-y-4> :not([hidden])~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+      }
+
+      .space-y-8> :not([hidden])~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(2rem * var(--tw-space-y-reverse))
+      }
+
+      .rounded {
+        border-radius: 0.25rem
+      }
+
+      .rounded-lg {
+        border-radius: 0.5rem
+      }
+
+      .border-2 {
+        border-width: 2px
+      }
+
+      .border-dashed {
+        border-style: dashed
+      }
+
+      .border-gray-300 {
+        --tw-border-opacity: 1;
+        border-color: rgb(209 213 219 / var(--tw-border-opacity))
+      }
+
+      .bg-blue-500 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(59 130 246 / var(--tw-bg-opacity))
+      }
+
+      .bg-gray-100 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 244 246 / var(--tw-bg-opacity))
+      }
+
+      .bg-gray-50 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251 / var(--tw-bg-opacity))
+      }
+
+      .bg-white {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+      }
+
+      .p-4 {
+        padding: 1rem
+      }
+
+      .p-8 {
+        padding: 2rem
+      }
+
+      .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem
+      }
+
+      .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem
+      }
+
+      .pb-6 {
+        padding-bottom: 1.5rem
+      }
+
+      .pt-5 {
+        padding-top: 1.25rem
+      }
+
+      .text-center {
+        text-align: center
+      }
+
+      .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem
+      }
+
+      .text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem
+      }
+
+      .text-sm {
+        font-size: 0.875rem;
+        line-height: 1.25rem
+      }
+
+      .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem
+      }
+
+      .text-xs {
+        font-size: 0.75rem;
+        line-height: 1rem
+      }
+
+      .font-bold {
+        font-weight: 700
+      }
+
+      .font-extrabold {
+        font-weight: 800
+      }
+
+      .font-semibold {
+        font-weight: 600
+      }
+
+      .text-blue-500 {
+        --tw-text-opacity: 1;
+        color: rgb(59 130 246 / var(--tw-text-opacity))
+      }
+
+      .text-gray-400 {
+        --tw-text-opacity: 1;
+        color: rgb(156 163 175 / var(--tw-text-opacity))
+      }
+
+      .text-gray-500 {
+        --tw-text-opacity: 1;
+        color: rgb(107 114 128 / var(--tw-text-opacity))
+      }
+
+      .text-gray-600 {
+        --tw-text-opacity: 1;
+        color: rgb(75 85 99 / var(--tw-text-opacity))
+      }
+
+      .text-gray-800 {
+        --tw-text-opacity: 1;
+        color: rgb(31 41 55 / var(--tw-text-opacity))
+      }
+
+      .text-white {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity))
+      }
+
+      .shadow-md {
+        --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+      }
+
+      .transition {
+        transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms
+      }
+
+      .duration-300 {
+        transition-duration: 300ms
+      }
+
+      .ease-in-out {
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+      }
+
+      .hover\:bg-blue-600:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(37 99 235 / var(--tw-bg-opacity))
+      }
+
+      .hover\:bg-gray-100:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 244 246 / var(--tw-bg-opacity))
+      }
+
+      .hover\:underline:hover {
+        -webkit-text-decoration-line: underline;
+        text-decoration-line: underline
+      }
+
+      @media (min-width: 640px) {
+        .sm\:gap-2 {
+          gap: 0.5rem
+        }
+
+        .sm\:gap-6 {
+          gap: 1.5rem
+        }
+      }
+
+      @media (min-width: 768px) {
+        .md\:flex-row {
+          flex-direction: row
+        }
+
+        .md\:gap-8 {
+          gap: 2rem
+        }
+
+        .md\:space-x-8> :not([hidden])~ :not([hidden]) {
+          --tw-space-x-reverse: 0;
+          margin-right: calc(2rem * var(--tw-space-x-reverse));
+          margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .md\:space-y-0> :not([hidden])~ :not([hidden]) {
+          --tw-space-y-reverse: 0;
+          margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+          margin-bottom: calc(0px * var(--tw-space-y-reverse))
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
+    <div class="flex items-center mb-4">
+      <img src="logo.jpeg" alt="Logo" class="w-24 h-24">
+      <h1 class="text-4xl font-extrabold text-gray-800 ml-4">Solver</h1>
+    </div>
+    <div class="bg-white p-8 rounded-lg shadow-md mb-8 flex flex-col items-center">
+      <h2 class="text-xl font-semibold mb-4">Line(s)</h2>
+      <form class="space-y-4">
+        <div class="flex items-center justify-center w-full">
+          <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+              <svg class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+              </svg>
+              <p class="mb-2 text-sm text-gray-500">
+                <span class="font-semibold">Click to upload</span> or drag and drop
+              </p>
+              <p class="text-xs text-gray-500">PNG, JPG, GIF, WEBP...</p>
+            </div>
+            <input id="dropzone-file" type="file" class="hidden" accept="image/*">
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="p-4 mb-8 text-center">
+      <p class="text-sm text-gray-600">Poke me on X! <a href="https://x.com/13ug1mb" class="text-blue-500 hover:underline">@13ug1mb</a>. <br>I started collecting feedback. <br> New resolutions and edge cases will be supported ASAP. </p>
+    </div>
+    <div class="bg-white p-8 rounded-lg shadow-md mb-8 flex flex-col items-center">
+      <h3 class="text-lg font-semibold mb-4">Example Image</h3>
+      <img src="samples/1x4.PNG" alt="Example Image" id="example-image" class="cursor-pointer w-16">
+      <p class="mt-2 text-sm text-gray-500">Click the image to upload</p>
+    </div>
+    <div class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
+      <div id="grid-container" class="hidden bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-4">8x8 Grid Analysis</h2>
+        <div id="grid-tiles" class="grid grid-cols-8 gap-1 sm:gap-2"></div>
+      </div>
+      <div id="figures-container" class="hidden bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-4">Figure Analysis</h2>
+        <div id="figures-grid" class="flex flex-wrap gap-4 sm:gap-6 md:gap-8"></div>
+      </div>
+    </div>
+    <div class="side-by-side mt-8">
+      <div id="solution-container" class="hidden bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-4">Final Grid Analysis</h2>
+        <div id="solution-grid" class="grid grid-cols-8 gap-1 sm:gap-2"></div>
+      </div>
+      <div id="steps-container" class="hidden bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-4">Step-by-Step Solution</h2>
+        <div id="steps-list" class="space-y-4"></div>
+      </div>
+    </div>
+    <button id="report-issue" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out hidden"> Report an Issue </button>
+    <div class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 mt-8">
+      <div id="debug-container" class="hidden bg-white p-8 rounded-lg shadow-md"></div>
+    </div>
+    <script async="" defer="" src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript>
+      <img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" />
+    </noscript>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6774169293525966" crossorigin="anonymous"></script>
+    <script src="js/image.js"></script>
+    <script src="js/solve.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+  </body>
+</html>
